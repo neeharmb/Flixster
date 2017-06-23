@@ -20,6 +20,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcels;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 import static com.example.neeharmb.flixster.MovieListActivity.API_BASE_URL;
@@ -31,9 +33,9 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
     Movie movie;
 
     // the view objects
-    TextView tvTitle;
-    TextView tvOverview;
-    RatingBar rbVoteAverage;
+    @BindView(R.id.tvTitle) TextView tvTitle;
+    @BindView(R.id.tvOverview) TextView tvOverview;
+    @BindView(R.id.rbVoteAverage) RatingBar rbVoteAverage;
     // set up instance variables
     AsyncHttpClient client;
 
@@ -45,11 +47,7 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
 
        super.onCreate(savedInstanceState);
        setContentView(R.layout.activity_movie_details);
-        // resolve the view objects
-        tvTitle = (TextView) findViewById(R.id.tvTitle);
-        tvOverview = (TextView) findViewById(R.id.tvOverview);
-        rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
-
+        ButterKnife.bind(this);
        // unwrap the movie passed in via intent, using its simple name as a key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
         Log.d("MovieDetailsActivity", String.format("Showing details for '%s'", movie.getTitle()));
