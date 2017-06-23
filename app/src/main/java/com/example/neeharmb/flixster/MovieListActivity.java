@@ -129,7 +129,7 @@ public class MovieListActivity extends AppCompatActivity {
         });
     }
 
-    // handlel errors, log and alert user
+    // handle errors, log and alert user
     private void logError(String message, Throwable error, boolean alertUser) {
         // always log the error
         Log.e(TAG, message, error);
