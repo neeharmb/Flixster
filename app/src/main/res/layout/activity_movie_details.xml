@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginLeft = "5dp"
         android:layout_below="@+id/linearLayout"
         android:text="Movie Title"
         android:textAppearance="@android:style/TextAppearance.Large"
@@ -26,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginLeft = "5dp"
         android:layout_below="@+id/tvTitle"
         android:numStars="5"
         android:theme="@style/RatingBar"
@@ -38,6 +40,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/rbVoteAverage"
+        android:layout_marginLeft = "5dp"
         android:fontFamily="sans-serif"
         android:textColor="@color/textColor"
         android:text="TextView" />
