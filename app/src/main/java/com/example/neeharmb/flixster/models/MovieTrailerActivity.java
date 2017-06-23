@@ -27,7 +27,6 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
             public void onInitializationSuccess(YouTubePlayer.Provider provider,
                                                 YouTubePlayer youTubePlayer, boolean b) {
                 // do any work here to cue video, play video, etc.
-                // video id
                 String videoId = getIntent().getStringExtra("Movie ID");
                 youTubePlayer.cueVideo(videoId);
                 youTubePlayer.play();

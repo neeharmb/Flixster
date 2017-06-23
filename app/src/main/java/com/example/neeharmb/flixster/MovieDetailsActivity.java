@@ -1,13 +1,11 @@
 package com.example.neeharmb.flixster;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.neeharmb.flixster.models.Config;
 import com.example.neeharmb.flixster.models.Movie;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -38,22 +36,9 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
     RatingBar rbVoteAverage;
     // set up instance variables
     AsyncHttpClient client;
-    //ImageButton ibTrailer;
-
-    // config needed for image urls
-    Config config;
-    // context for rendering
-    Context context;
 
     // tag for the logging from this activity
     public final static String TAG = "MoveDetailsActivity";
-
-    // a numeric code to identify the edit activity
-    public final static int VIDEO_REQUEST_CODE = 20;
-
-    // keys used for passing data between activities
-    public final static String MOVIE_ID = "Movie ID";
-    public final static String ITEM_POSITION = "itemPosition";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +49,6 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvOverview = (TextView) findViewById(R.id.tvOverview);
         rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
-        //ibTrailer = (ImageButton) findViewById(R.id.ibTrailer);
 
        // unwrap the movie passed in via intent, using its simple name as a key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
@@ -113,7 +97,7 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
                                                             YouTubePlayer youTubePlayer, boolean b) {
                             // do any work here to cue video, play video, etc.
                             // video id
-                            String videoId = youtube_key[0]; //getIntent().getStringExtra("Movie ID");
+                            String videoId = youtube_key[0];
                             youTubePlayer.cueVideo(videoId);
                             youTubePlayer.play();
                         }
@@ -125,9 +109,6 @@ public class MovieDetailsActivity extends YouTubeBaseActivity {
                             Log.e("MovieTrailerActivity", "Error initializing YouTube player");
                         }
                     });
-                    //Intent i = new Intent(MovieDetailsActivity.this, MovieTrailerActivity.class);
-                    //i.putExtra(MOVIE_ID, youtube_key);
-                    //startActivityForResult(i, VIDEO_REQUEST_CODE);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
